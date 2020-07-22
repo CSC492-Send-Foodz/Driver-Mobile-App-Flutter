@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "813090925215",
+    "firebase_url": "https://send-foodz-1a677.firebaseio.com",
+    "project_id": "send-foodz-1a677",
+    "storage_bucket": "send-foodz-1a677.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813090925215:android:7dde64ff894f712837d0aa",
+        "android_client_info": {
+          "package_name": "com.sendfoodz.drivermobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "813090925215-rt28rs2r3ad74hkj7sk3gpqdill5h3vf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMvoPbVC1na4E8L8rtPQrmK-gVuldeTSo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "813090925215-rt28rs2r3ad74hkj7sk3gpqdill5h3vf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
