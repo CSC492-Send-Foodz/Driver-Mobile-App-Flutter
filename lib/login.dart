@@ -1,3 +1,4 @@
+import 'package:driver_mobile/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 //import 'package:pinput/pin_put/pin_put.dart';
@@ -82,7 +83,10 @@ class _LoginPageState extends State<LoginPage> {
           style: TextStyle(color: Colors.white60, fontWeight: FontWeight.bold),
           recognizer: TapGestureRecognizer()
             ..onTap = () {
-              print('display sign up page');
+             Navigator.push(
+               context,
+               MaterialPageRoute(builder: (context)=> SignUpPage()),
+             );
             }),
     ]));
 

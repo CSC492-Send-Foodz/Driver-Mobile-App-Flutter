@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'login.dart';
 
 class SignUpPage extends StatefulWidget {
   @override
@@ -60,7 +61,10 @@ class _SignUpPageState extends State<SignUpPage> {
           style: TextStyle(color: Colors.white60, fontWeight: FontWeight.bold),
           recognizer: TapGestureRecognizer()
             ..onTap = () {
-              print('display sign in page');
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => LoginPage()),
+              );
             }),
     ]));
     final loginBtn = Material(
@@ -79,48 +83,45 @@ class _SignUpPageState extends State<SignUpPage> {
             )));
 
     return Scaffold(
-        body:
-        Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [
-                  Color.fromARGB(255, 4, 62, 73),
-                  Color.fromARGB(255, 30, 117, 119)
-                ]),
-          ),
-          child: Container(
-            child: Padding(
-              padding: const EdgeInsets.all(40.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  title,
-                  SizedBox(height: MediaQuery.of(context).size.height / 10),
-                  name,
-                  SizedBox(height: 5.0),
-                  email,
-                  SizedBox(height: 5.0),
-                  phone,
-                  SizedBox(
-                    height: 5.0,
-                  ),
-                  switchToSignin,
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  loginBtn,
-                ],
-              ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Color.fromARGB(255, 4, 62, 73),
+                Color.fromARGB(255, 30, 117, 119)
+              ]),
+        ),
+        child: Container(
+          child: Padding(
+            padding: const EdgeInsets.all(40.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                title,
+                SizedBox(height: MediaQuery.of(context).size.height / 10),
+                name,
+                SizedBox(height: 5.0),
+                email,
+                SizedBox(height: 5.0),
+                phone,
+                SizedBox(
+                  height: 5.0,
+                ),
+                switchToSignin,
+                SizedBox(
+                  height: 10.0,
+                ),
+                loginBtn,
+              ],
             ),
           ),
         ),
+      ),
     );
   }
 }
 
 // Stage connection to firestore DB
-
-
