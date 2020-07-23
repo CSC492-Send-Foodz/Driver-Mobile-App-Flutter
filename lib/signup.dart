@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 import 'login.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -29,7 +30,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 color: Colors.greenAccent),
             contentPadding: EdgeInsets.fromLTRB(10.0, 15.0, 20.0, 15.0),
             border: InputBorder.none,
-            hintText: '',
+            hintText: 'Name',
             hintStyle: style.copyWith(color: Colors.white54)));
     final email = TextField(
         style: style.copyWith(color: Colors.white),
@@ -39,19 +40,51 @@ class _SignUpPageState extends State<SignUpPage> {
                 color: Colors.greenAccent),
             contentPadding: EdgeInsets.fromLTRB(10.0, 15.0, 20.0, 15.0),
             border: InputBorder.none,
-            hintText: '',
+            hintText: 'E-mail',
             hintStyle: style.copyWith(color: Colors.white54)));
-    final phone = TextField(
-        style: style.copyWith(color: Colors.white),
-        keyboardType: TextInputType.number,
-        decoration: InputDecoration(
-            prefixIcon: Icon(Icons.phone_android,
-                // color: Colors.white38,
-                color: Colors.greenAccent),
-            contentPadding: EdgeInsets.fromLTRB(10.0, 15.0, 20.0, 15.0),
-            border: InputBorder.none,
-            hintText: '',
-            hintStyle: style.copyWith(color: Colors.white54)));
+    final capacity = SleekCircularSlider(
+        appearance: CircularSliderAppearance(
+            customWidths:
+                CustomSliderWidths(trackWidth: 1, progressBarWidth: 2),
+            customColors: CustomSliderColors(
+                trackColor: Colors.white,
+                progressBarColor: Colors.orange,
+                hideShadow: true),
+            infoProperties: InfoProperties(
+                topLabelStyle: TextStyle(
+                    color: Colors.orangeAccent,
+                    fontSize: 30,
+                    fontWeight: FontWeight.w600),
+                topLabelText: 'Capacity',
+                mainLabelStyle: TextStyle(
+                    color: Colors.white,
+                    fontSize: 50.0,
+                    fontWeight: FontWeight.w100),
+                modifier: (double value) {
+                  final capacity = (value).toInt();
+                  return '$capacity kg';
+                }),
+            startAngle: 180,
+            angleRange: 270,
+            size: 200.0,
+            animationEnabled: false),
+        min: 5,
+        max: 1000,
+        initialValue: 40,
+        onChange: (double value) {
+          print(value);
+        });
+    // TextField(
+    //     style: style.copyWith(color: Colors.white),
+    //     keyboardType: TextInputType.number,
+    //     decoration: InputDecoration(
+    //         prefixIcon: Icon(Icons.airport_shuttle,
+    //             // color: Colors.white38,
+    //             color: Colors.greenAccent),
+    //         contentPadding: EdgeInsets.fromLTRB(10.0, 15.0, 20.0, 15.0),
+    //         border: InputBorder.none,
+    //         hintText: 'Capacity',
+    //       hintStyle: style.copyWith(color: Colors.white54)));
     final switchToSignin = Text.rich(TextSpan(children: [
       TextSpan(
           text: "Already have an account? ",
@@ -106,7 +139,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 SizedBox(height: 5.0),
                 email,
                 SizedBox(height: 5.0),
-                phone,
+                capacity,
                 SizedBox(
                   height: 5.0,
                 ),
