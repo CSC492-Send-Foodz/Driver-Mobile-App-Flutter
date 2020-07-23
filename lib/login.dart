@@ -4,6 +4,7 @@ import 'package:flutter/gestures.dart';
 //import 'package:pinput/pin_put/pin_put.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'dashboard.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 final GoogleSignIn _googleSignIn = GoogleSignIn();
@@ -26,7 +27,6 @@ Future<FirebaseUser> _handleSignIn() async {
     user = (await _auth.signInWithCredential(credential)).user;
   }
 
-  print("signed in " + user.displayName);
   return user;
 }
 
@@ -83,10 +83,10 @@ class _LoginPageState extends State<LoginPage> {
           style: TextStyle(color: Colors.white60, fontWeight: FontWeight.bold),
           recognizer: TapGestureRecognizer()
             ..onTap = () {
-             Navigator.push(
-               context,
-               MaterialPageRoute(builder: (context)=> SignUpPage()),
-             );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SignUpPage()),
+              );
             }),
     ]));
 
@@ -98,7 +98,12 @@ class _LoginPageState extends State<LoginPage> {
             minWidth: MediaQuery.of(context).size.width / 4,
             padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
             onPressed: () => _handleSignIn()
-                .then((FirebaseUser user) => print(user))
+                .then((FirebaseUser user) => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              Dashboard(name: user.displayName)),
+                    ))
                 .catchError((e) => print(e)),
             child: Icon(
               Icons.input,

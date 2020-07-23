@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 import 'login.dart';
+import 'dashboard.dart';
 
 class SignUpPage extends StatefulWidget {
   @override
@@ -14,6 +15,14 @@ class _SignUpPageState extends State<SignUpPage> {
     border: Border.all(color: Colors.greenAccent, width: 2.0),
     borderRadius: BorderRadius.circular(15),
   );
+  final controller = TextEditingController();
+  var vehCapacity;
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +33,7 @@ class _SignUpPageState extends State<SignUpPage> {
     );
     final name = TextField(
         style: style.copyWith(color: Colors.white),
+        controller: controller,
         decoration: InputDecoration(
             prefixIcon: Icon(Icons.text_fields,
                 // color: Colors.white38,
@@ -55,22 +65,23 @@ class _SignUpPageState extends State<SignUpPage> {
                     color: Colors.orangeAccent,
                     fontSize: 30,
                     fontWeight: FontWeight.w600),
-                topLabelText: 'Capacity',
+                topLabelText: 'SaveBoxes',
                 mainLabelStyle: TextStyle(
                     color: Colors.white,
                     fontSize: 50.0,
                     fontWeight: FontWeight.w100),
                 modifier: (double value) {
                   final capacity = (value).toInt();
-                  return '$capacity kg';
+                  vehCapacity = capacity;
+                  return '$capacity';
                 }),
             startAngle: 180,
             angleRange: 270,
             size: 200.0,
             animationEnabled: false),
-        min: 5,
-        max: 1000,
-        initialValue: 40,
+        min: 1,
+        max: 20,
+        initialValue: 4,
         onChange: (double value) {
           print(value);
         });
@@ -107,7 +118,13 @@ class _SignUpPageState extends State<SignUpPage> {
         child: MaterialButton(
             minWidth: MediaQuery.of(context).size.width / 4,
             padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Dashboard(
+                          name: controller.text, capacity: vehCapacity)));
+            },
             child: Icon(
               Icons.input,
               //color: Color.fromARGB(255, 12, 91, 96),
