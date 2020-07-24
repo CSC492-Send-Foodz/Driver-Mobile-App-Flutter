@@ -16,12 +16,12 @@ To debug and test the code locally, follow Flutter's [installation and set-up do
 * move unique id generation to front-end to get records from Drivers collection
 
 2. Sign-up page (24/7)
-- account registration option
+* account registration option
 
 3. Dashboard: (25/7)
 * UI:
 	- bottom navbar (navbar.dart)
- 	- profile	 (profile.dart)
+ 	- profile (profile.dart)
 * initiaize with sending name, email, capacity to backend to update DB; get suitable orders list
 
 4. Splash Screen: (24/7)
@@ -35,14 +35,14 @@ To debug and test the code locally, follow Flutter's [installation and set-up do
 * Routing
 
 5. Orders: (26/7)
-    *  UI
-		- suitable orders list parsed
-		- animation
-    * Selection + confirmation logic
+*  UI
+	- suitable orders list parsed
+	- animation
+* Selection + confirmation logic
 
 6. Map: (27-28/7)
-    * Google maps-flutter integration
-    * Path tracking, with multiplt stop option
+* Google maps-flutter integration
+* Path tracking, with multiplt stop option
 
 7. Reward (optional):
-    * Cumulative rewards
+* Cumulative rewards
