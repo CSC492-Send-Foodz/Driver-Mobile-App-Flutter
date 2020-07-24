@@ -52,6 +52,16 @@ class _SignUpPageState extends State<SignUpPage> {
             border: InputBorder.none,
             hintText: 'E-mail',
             hintStyle: style.copyWith(color: Colors.white54)));
+    final password = TextField(
+        style: style.copyWith(color: Colors.white),
+        decoration: InputDecoration(
+            prefixIcon: Icon(Icons.alternate_email,
+                // color: Colors.white38,
+                color: Colors.greenAccent),
+            contentPadding: EdgeInsets.fromLTRB(10.0, 15.0, 20.0, 15.0),
+            border: InputBorder.none,
+            hintText: 'Password',
+            hintStyle: style.copyWith(color: Colors.white54)));
     final capacity = SleekCircularSlider(
         appearance: CircularSliderAppearance(
             customWidths:
