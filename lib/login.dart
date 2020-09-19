@@ -3,28 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 //import 'package:pinput/pin_put/pin_put.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-//import 'package:google_sign_in/google_sign_in.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'dashboard.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
 void _handleSignIn(context, email, password) async {
   FirebaseUser user;
-  //bool isLoggedIn = await _googleSignIn.isSignedIn();
-
-  // if (isLoggedIn) {
-  //   user = await _auth.currentUser();
-  // } else {
-  //   // final AuthResult googleUser = await _auth.signInWithEmailAndPassword(email: email, password: password);
-  //   // final GoogleSignInAuthentication googleAuth =
-  //   //     await googleUser.authentication;
-
-  //   // final AuthCredential credential = GoogleAuthProvider.getCredential(
-  //   //   accessToken: googleAuth.accessToken,
-  //   //   idToken: googleAuth.idToken,
-  //   // );
-  //   user = (await _auth.signInWithEmailAndPassword(email: email, password: password)).user;
-  // }
 
   try {
     user = (await _auth.signInWithEmailAndPassword(
